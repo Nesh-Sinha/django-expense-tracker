@@ -15,11 +15,6 @@ A simple, lightweight Django web application to help you track daily expenses, m
 
 ---
 
-## 📸 Screenshots
-
-> Add screenshots here showing home page, expense form, budget alert, and chart.
-
----
 
 ## 🛠️ Tech Stack
 
@@ -54,32 +49,15 @@ The app allows users to set a budget for their spending. When expenses exceed th
 
 ---
 
-## 📂 Project Structure
-
-expense-tracker/
-│
-├── tracker/ # Main Django app
-│ ├── templates/tracker/ # HTML templates
-│ │ ├── home.html
-│ │ ├── expense.html
-│ │ ├── viewExpense.html
-│ │ ├── chart.html
-│ │ └── about.html
-│ ├── views.py # App logic (budget, expenses, alerts)
-│ └── urls.py
-│
-├── static/ # Static files (CSS/JS)
-├── manage.py
-└── README.md
 
 
 ## 📝 Developer Info
 
-👨‍💻 Developer: Nesh Sinha
-🎓 Student at: B.Tech Computer Science
-📬 Email: nsnesh25@gmail.com
-🔗 LinkedIn: https://www.linkedin.com/in/nesh-sinha-36aa54270/
-💻 GitHub: https://github.com/Nesh-Sinha
+- 👨‍💻 Developer: Nesh Sinha
+- 🎓 Student at: B.Tech Computer Science
+- 📬 Email: nsnesh25@gmail.com
+- 🔗 LinkedIn: https://www.linkedin.com/in/nesh-sinha-36aa54270/
+- 💻 GitHub: https://github.com/Nesh-Sinha
 
 
 ## 💡 Why I Built This

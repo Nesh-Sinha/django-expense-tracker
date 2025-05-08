@@ -69,9 +69,7 @@ def addexpense(request):
         return redirect('expense')
 
 
-def viewexpense(request):
-    
-    return render(request, 'tracker/viewexpense.html') 
+ 
 
 def delete_data(request):
     if request.method == 'POST':
