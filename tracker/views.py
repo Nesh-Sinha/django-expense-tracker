@@ -71,7 +71,7 @@ def addexpense(request):
 
 def viewexpense(request):
     
-    return render(request, 'tracker/viewExpense.html') 
+    return render(request, 'tracker/viewexpense.html') 
 
 def delete_data(request):
     if request.method == 'POST':
