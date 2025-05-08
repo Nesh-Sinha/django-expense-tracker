@@ -27,20 +27,27 @@ def viewexp(request):
 '''--------------  functions  -------------'''
 def budget(request):
     if request.method == 'POST':
-        budget = int(request.POST.get('budget'))
-        request.session['budget'] = budget
-        return redirect('expense')
-    return redirect('home')  # Or render a form
+        budget_input = request.POST.get('budget')
+        if budget_input and budget_input.isdigit():
+            budget = int(budget_input)
+            request.session['budget'] = budget
+            return redirect('expense')
+        return redirect('home')
+    return redirect('home')
 
 
 
 def addexpense(request):
     if request.method == 'POST':
-        title = request.POST.get('title') 
-        amount = int(request.POST.get('amount'))
+        title = request.POST.get('title', '').strip()
+        amount_str = request.POST.get('amount', '').strip()
 
+        
+        if not title or not amount_str.isdigit():
+            return redirect('expense')  # Do nothing if invalid
+
+        amount = int(amount_str)
         new_expense = {'title': title, 'amount': amount}
-
         expenses = request.session.get('expenses', [])
 
         for item in expenses:
@@ -52,17 +59,12 @@ def addexpense(request):
 
         request.session['expenses'] = expenses
 
-        # Calculate total expense after update
         total_expense = sum(item['amount'] for item in expenses)  
         request.session['total_expense'] = total_expense
         request.session.modified = True
-        print("Total Expense:", total_expense)
 
         budget = request.session.get('budget', 0)
-        if total_expense > budget:
-            request.session['budget_exceeded'] = True
-        else:
-            request.session['budget_exceeded'] = False
+        request.session['budget_exceeded'] = total_expense > budget
 
         return redirect('expense')
 
