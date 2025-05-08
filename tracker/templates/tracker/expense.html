@@ -1,0 +1,31 @@
+{% extends 'tracker/layout.html' %}
+
+{% block content %}
+{% if request.session.budget_exceeded %}
+<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+  <strong>Alert!</strong> Your total expenses have exceeded your budget limit.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form  method="POST" action="{% url 'addexpense' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="itemInput" class="form-label">Item</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Enter item name">
+                </div>
+                <div class="mb-3">
+                    <label for="amountInput" class="form-label">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="amount" placeholder="Enter amount">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+                
+                <a href="{% url 'viewexp' %}" class="btn btn-secondary">View</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

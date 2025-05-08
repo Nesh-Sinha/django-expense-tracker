@@ -1,0 +1,27 @@
+{% extends 'tracker/layout.html' %}
+
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row align-items-center">
+
+        <div class="col-md-6 text-center text-md-start">
+            <h1 class="fw-bold" style="color: #333; font-size: 2.5rem;">Budget</h1>
+
+            <form class="mt-4" action="{% url 'budget' %}" method="POST">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" name="budget" placeholder="Enter your budget" aria-label="Budget" aria-describedby="button-addon2" style="border-radius: 5px; border: 1px solid #ccc;">
+                    <button class="btn btn-primary" type="submit" id="button-addon2" style="background-color: #ff6f61; border: none;">Submit</button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="col-md-6 text-center">
+            <img src="{% static 'home.png' %}" alt="Expense Tracker" class="img-fluid rounded" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3);">
+        </div>
+
+    </div>
+</div>
+{% endblock %}
