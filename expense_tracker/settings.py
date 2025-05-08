@@ -27,7 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # This is where your development static files are kept
+]
 
+  
 
 
 # Application definition
