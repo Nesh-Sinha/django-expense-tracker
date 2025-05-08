@@ -21,7 +21,7 @@ def expense(request):
     return render(request,'tracker/expense.html')
 
 def viewexp(request):
-    return render(request,'tracker/viewExpense.html')
+    return render(request,'tracker/viewexpense.html')
 
 
 '''--------------  functions  -------------'''
